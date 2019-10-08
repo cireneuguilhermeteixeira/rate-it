@@ -1,3 +1,69 @@
 page-home {
 
+    .logo{
+        position: relative;
+        width: 100px;
+    }
+
+    .nav-item{
+        padding-left: 20px;
+    }
+
+    .avatar{
+        width: 30px;
+        border: solid 1px rgb(161, 161, 161);
+        border-radius: 50%;
+    }
+
+    .icon-button{
+        font-size: 10px;
+    }
+
+    .image-horizontal{
+        object-fit: cover; 
+        width: 130px;
+        height: 100px;
+        background-color: rgb(168, 166, 166);
+
+    }
+
+   .scroll-content{
+      background-color: #f8f9fa;
+   }
+    .my-list{
+        margin-top: 50px;
+    }
+
+
+    .galeria-container {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        margin-bottom: 3vh;
+        //justify-content: space-between;
+      }
+      
+      .galeria-container::-webkit-scrollbar {
+        display: none;
+      }
+    
+      .galeria-container .galeria-item:last-child {
+        margin-right: 0;
+      }
+    
+      .galeria-item {
+          padding: 10px;
+      }
+
+     
+      .image-container{
+        background-color: rgb(168, 166, 166);
+        background-size: cover;
+        min-height: 200px;
+    }
+    
+
+      
 }
+

@@ -1,0 +1,135 @@
+<ion-content scroll="false">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Alterna navegação">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <img src="../../assets/icon/logo.png" (click)="welcome()" class="logo" alt="logo" srcset="">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="#/home">FILMES <span class="sr-only">(Página atual)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">SÉRIES</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">MÚSICAS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">LIVROS</a>
+            </li>
+          
+          </ul>
+          <a href="#/profile"><img title="avatar"  src="../../assets/imgs/appicon.png" class="avatar" alt=""></a>
+        </div>
+    </nav>
+  
+  <div class="splash-bg"></div>
+  <div class="title-media">
+    <h1>
+      Título do filme
+    </h1>
+  </div>
+  <div class="splash-info">
+    <ion-grid>
+        <ion-row>
+          <ion-col>
+              <ion-grid>
+                  <ion-row  class="profile-data">
+                    <ion-col>
+                      <button ion-button color="primary">
+                        a
+                      </button>
+                    </ion-col>
+                    <ion-col>
+                        <button ion-button color="secondary">
+                            b
+                        </button>
+                    </ion-col>
+                    <ion-col>
+                        <button ion-button color="danger">
+                            c
+                        </button>
+                    </ion-col>
+                  </ion-row>
+              </ion-grid>
+          </ion-col>
+          <ion-col style="margin-top: -20px;">
+              <div class="splash-logo">
+                <h1>
+                   9.2
+                </h1>
+              </div>
+              <div class="splash-intro">
+                12400 Votos
+              </div>                 
+          </ion-col>
+          <ion-col class="profile-quote">
+            <button ion-button icon-end large title="Adicionar na coleção">
+                + Já assisti!
+            </button>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+  </div>
+  <div padding class="details">
+    <h3>
+      Sinopse
+    </h3>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu pretium magna. Fusce ultricies, est eu 
+        feugiat accumsan, dui quam consequat arcu, at sagittis ante odio ut mi. Integer bibendum, 
+        diam eget efficitur consectetur, velit metus congue nulla, ac malesuada orci nisl non nisi.
+         Sed lacinia odio id nisl luctus scelerisque.
+         <br>
+         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu pretium magna. Fusce ultricies, est eu 
+        feugiat accumsan, dui quam consequat arcu, at sagittis ante odio ut mi. Integer bibendum, 
+        diam eget efficitur consectetur, velit metus congue nulla, ac malesuada orci nisl non nisi.
+         Sed lacinia odio id nisl luctus scelerisque.
+    </p>
+    <br>
+    <hr>
+   <h3>
+     + Informações
+   </h3>
+   <p>
+     <strong>Ano do lançamento:</strong>
+      2018
+   </p>
+   <p>
+     <strong>Duração:</strong>
+     210 minutos
+   </p>
+   <p>
+     <strong>Elenco:</strong>
+     Velit metus congue nulla, ac malesuada orci nisl non nisi. Sed lacinia odio id nisl luctus scelerisque.
+   </p>
+   <br>
+   <hr>
+   <h1>
+     O que estão falando sobre...
+   </h1>
+   <br>
+   <button ion-button block (click)="showComents()" color="light" *ngIf="!commentsVisible">
+      EXIBIR COMENTÁRIOS
+  </button>
+  <div *ngIf="commentsVisible">
+      <button ion-button block (click)="hideComents()" color="light" >
+          ESCONDER COMENTÁRIOS
+      </button>
+      <ion-list>
+          <ion-item-sliding *ngFor="let item of items">
+            <button ion-item (click)="openProfile(item)">
+              <ion-avatar item-start>
+                <img [src]="item.profilePic" />
+              </ion-avatar>
+              <h2>{{item.name}}</h2>
+              <p>{{item.about}}</p>
+              <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
+            </button>
+    
+          </ion-item-sliding>
+        </ion-list>
+  </div>
+  </div>
+</ion-content>

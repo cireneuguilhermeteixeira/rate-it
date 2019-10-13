@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { HomePage } from '../home/home';
+import { NavController,IonicPage } from 'ionic-angular';
+//import { HomePage } from '../home/home';
 
+//@IonicPage()
 @Component({
   selector: 'page-welcome',
   templateUrl: 'welcome.html'
@@ -13,8 +14,9 @@ export class WelcomePage {
   }
 
   login(){
-    console.log('login'); 
-    this.navCtrl.setRoot(HomePage);
+    console.log('login');
+    this.navCtrl.push('HomePage');
+    //this.navCtrl.setRoot(HomePage);
   }
 
 }

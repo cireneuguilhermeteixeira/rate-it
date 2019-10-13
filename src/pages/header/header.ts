@@ -1,17 +1,15 @@
-import { Component, ViewChild, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
 import { WelcomePage } from '../welcome/welcome';
-import { HeaderPage } from '../header/header';
 
-@IonicPage()
 @Component({
-  
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-header',
+  templateUrl: 'header.html'
 })
-export class HomePage {
-  @ViewChild("header") public headerComponent: HeaderPage;
-  
+export class HeaderPage {
+  @Input()
+  avatar;
+
   search:any=null;
   constructor(public navCtrl: NavController) {
 
@@ -25,11 +23,8 @@ export class HomePage {
   }
 
   openProfile(){
+    console.log(this.avatar);
+    
     this.navCtrl.push('ProfilePage');
-  }
-
-  openDetails(info){
-    this.navCtrl.push('DetailPage');
-
   }
 }

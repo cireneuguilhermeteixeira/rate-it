@@ -1,0 +1,87 @@
+<ion-content scroll="false">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Alterna navegação">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <img src="../../assets/icon/logo.png" (click)="welcome()" class="logo" alt="logo" srcset="">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="#/home">FILMES <span class="sr-only">(Página atual)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">SÉRIES</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">MÚSICAS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">LIVROS</a>
+            </li>
+          
+          </ul>
+          <a href="#/profile"><img title="avatar"  src="../../assets/imgs/appicon.png" class="avatar" alt=""></a>
+        </div>
+    </nav>
+  <div class="splash-bg"></div>
+  <div class="splash-info">
+    <ion-grid>
+        <ion-row>
+          <ion-col>
+              <ion-grid>
+                  <ion-row  class="profile-data">
+                    <ion-col>
+                      <p><strong>36</strong></p>
+                      <p>Seguindo</p>
+                    </ion-col>
+                    <ion-col>
+                      <p><strong>40</strong></p>
+                      <p>Me seguem</p>
+                    </ion-col>
+                  </ion-row>
+              </ion-grid>
+            </ion-col>
+            <ion-col>
+                <div class="splash-logo"></div>
+                <div class="splash-intro">
+                  Cireneu Guilherme
+                </div>
+                <div class="nich-name">
+                  @cireneu_guilherme
+                </div>
+            </ion-col>
+            <ion-col class="profile-quote">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur 
+                adipiscing elit. Morbi eu pretium
+              </p>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+  </div>
+  <div padding class="my-favorites">
+    <h3>
+      Títulos Favoritos
+    </h3>
+    <ion-grid>
+        <ion-row>
+          <ion-col col-6 col-md-4 col-xl-3 *ngFor="let image of [1,2,3,4,5,6]" >
+            <div class="image-container" style.background-image="'url(assets/imgs/logo.png)'"  (click)="openDetails()">
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid> 
+
+      <h3>
+          Títulos Recentes
+        </h3>
+        <ion-grid>
+            <ion-row>
+              <ion-col col-6 col-md-4 col-xl-3 *ngFor="let image of [1,2,3,4,5,6]" >
+                <div class="image-container" style.background-image="'url(assets/imgs/logo.png)'" (click)="openDetails()">
+                </div>
+              </ion-col>
+            </ion-row>
+        </ion-grid> 
+  </div>
+</ion-content>

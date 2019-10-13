@@ -7,28 +7,32 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 
 import { WelcomePage } from '../pages/welcome/welcome';
-import {HomePage} from '../pages/home/home';
+//import {HeaderPage} from '../pages/header/header';
 
 @NgModule({
   declarations: [
     MyApp,
     WelcomePage,
-    HomePage
+    //HeaderPage
   ],
   imports: [
     BrowserModule,
+    //HeaderPage,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     WelcomePage,
-    HomePage
+    //HeaderPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
+  ],
+  exports:[
+    //HeaderPage
   ]
 })
 export class AppModule {}

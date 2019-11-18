@@ -61,6 +61,8 @@ export class DetailPage {
 
   ionViewWillEnter() {
     this.currentMovie = this.navParams.get('movie')
+    console.log('currentMovie',this.currentMovie);
+    
   }
 
   welcome(){

@@ -1,5 +1,5 @@
 import { Component, ViewChild, Input } from '@angular/core';
-import { NavController, IonicPage } from 'ionic-angular';
+import { NavController, IonicPage, LoadingController } from 'ionic-angular';
 import { WelcomePage } from '../welcome/welcome';
 import { HeaderPage } from '../header/header';
 import { MovieProvider } from '../../providers/movie.provider';
@@ -22,6 +22,8 @@ export class HomePage {
     public navCtrl: NavController,
     public movieProvider: MovieProvider,
     public toastCtrl: ToastController,
+    public loadingController: LoadingController,
+
 
     ) {
 
@@ -32,10 +34,16 @@ export class HomePage {
   }
 
   getPopular(){
-    this.movieProvider.getPopular()
+    const loading = this.loadingController.create({
+      content: 'Buscando ',
+      dismissOnPageChange: true
+    })
+
+
+    loading.present()
+    .then(() => this.movieProvider.getPopular())
     .then(resp=>{
       console.log(resp);
-      
       this.popularsMovie = resp.results;
     })
     .then(()=>{
@@ -46,6 +54,7 @@ export class HomePage {
         })
       })
     })
+    .then(() => loading.dismiss().catch(() => {}))
     .catch(error => ErrorChecker.getErrorMessage('Erro ao tentar obter informações dos filmes populares',error, this.toastCtrl))
 
   }
@@ -62,7 +71,7 @@ export class HomePage {
   }
 
   openDetails(movie){
-    this.navCtrl.push('DetailPage',movie);
+    this.navCtrl.push('DetailPage',{movie});
 
   }
 }

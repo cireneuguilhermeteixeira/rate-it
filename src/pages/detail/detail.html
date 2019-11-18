@@ -25,13 +25,13 @@
     </nav>
   
   <div class="splash-bg"></div>
-  <div class="title-media">
+  <div class="title-media" *ngIf="currentMovie">
     <h1>
-      {{currentMovie.title}} - ({{currentMovie.original_title}})
+      {{currentMovie.title}} 
 
     </h1>
   </div>
-  <div class="splash-info">
+  <div class="splash-info" *ngIf="currentMovie">
     <ion-grid>
         <ion-row>
           <ion-col>
@@ -73,7 +73,7 @@
         </ion-row>
     </ion-grid>
   </div>
-  <div padding class="details">
+  <div padding class="details" *ngIf="currentMovie">
     <h3>
       Sinopse
     </h3>
@@ -93,12 +93,12 @@
      <strong>Duração:</strong>
      210 minutos
    </p>
-   <p>
+  
      <strong>Produtores:</strong>
      <ul *ngFor="let company of currentMovie.production_companies">
        <li>{{company.name}}: ({{company.origin_country}})</li>
      </ul>
-   </p>
+  
    <br>
    <hr>
    <h1>

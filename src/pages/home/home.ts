@@ -71,7 +71,13 @@ export class HomePage {
   }
 
   openDetails(movie){
-    this.navCtrl.push('DetailPage',{movie});
+    console.log('movieId', movie.id);
+    
+    this.navCtrl.push('DetailPage',
+    {
+      movieId: movie.id,
+      pathPoster: movie.pathPoster
+    });
 
   }
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, IonicPage, NavParams } from 'ionic-angular';
 import { WelcomePage } from '../welcome/welcome';
 import { Movie } from '../../model/movie';
+import { MovieProvider } from '../../providers/movie.provider';
 
 @IonicPage()
 @Component({
@@ -50,18 +51,30 @@ export class DetailPage {
   commentsVisible:boolean = false;
   search:any=null;
   currentMovie:Movie;
-
+  movieId;
+  teste = '../assets/imgs/splashbg.png'
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
+    public movieProvider: MovieProvider
 
     ) {
 
   }
 
   ionViewWillEnter() {
-    this.currentMovie = this.navParams.get('movie')
-    console.log('currentMovie',this.currentMovie);
+
+    this.movieId = this.navParams.get('movieId');
+    //this.currentMovie = this.navParams.get('movie')
+    if(this.movieId) {
+      this.movieProvider.getById(this.movieId)
+      .then(movie=>{
+        this.currentMovie = movie;
+        this.currentMovie.pathPoster = this.navParams.get('pathPoster');
+      })
+    }else{
+      this.navCtrl.setRoot(WelcomePage)
+    }
     
   }
 

@@ -9,6 +9,10 @@ import { MyApp } from './app.component';
 import { WelcomePage } from '../pages/welcome/welcome';
 //import {HeaderPage} from '../pages/header/header';
 
+import { MovieProvider } from '../providers/movie.provider';
+import { HttpClientModule } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -18,6 +22,7 @@ import { WelcomePage } from '../pages/welcome/welcome';
   imports: [
     BrowserModule,
     //HeaderPage,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -29,7 +34,9 @@ import { WelcomePage } from '../pages/welcome/welcome';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    MovieProvider,
+
   ],
   exports:[
     //HeaderPage

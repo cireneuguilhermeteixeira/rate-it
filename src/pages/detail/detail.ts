@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, IonicPage } from 'ionic-angular';
+import { NavController, IonicPage, NavParams } from 'ionic-angular';
 import { WelcomePage } from '../welcome/welcome';
+import { Movie } from '../../model/movie';
 
 @IonicPage()
 @Component({
@@ -48,8 +49,18 @@ export class DetailPage {
   ];
   commentsVisible:boolean = false;
   search:any=null;
-  constructor(public navCtrl: NavController) {
+  currentMovie:Movie;
 
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+
+    ) {
+
+  }
+
+  ionViewWillEnter() {
+    this.currentMovie = this.navParams.get('movie')
   }
 
   welcome(){

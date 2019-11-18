@@ -27,7 +27,8 @@
   <div class="splash-bg"></div>
   <div class="title-media">
     <h1>
-      Título do filme
+      {{currentMovie.title}} - ({{currentMovie.original_title}})
+
     </h1>
   </div>
   <div class="splash-info">
@@ -57,11 +58,11 @@
           <ion-col style="margin-top: -20px;">
               <div class="splash-logo">
                 <h1>
-                   9.2
+                   {{currentMovie.vote_average}}
                 </h1>
               </div>
               <div class="splash-intro">
-                12400 Votos
+                {{currentMovie.vote_count}} Votos
               </div>                 
           </ion-col>
           <ion-col class="profile-quote">
@@ -77,15 +78,7 @@
       Sinopse
     </h3>
     <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu pretium magna. Fusce ultricies, est eu 
-        feugiat accumsan, dui quam consequat arcu, at sagittis ante odio ut mi. Integer bibendum, 
-        diam eget efficitur consectetur, velit metus congue nulla, ac malesuada orci nisl non nisi.
-         Sed lacinia odio id nisl luctus scelerisque.
-         <br>
-         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu pretium magna. Fusce ultricies, est eu 
-        feugiat accumsan, dui quam consequat arcu, at sagittis ante odio ut mi. Integer bibendum, 
-        diam eget efficitur consectetur, velit metus congue nulla, ac malesuada orci nisl non nisi.
-         Sed lacinia odio id nisl luctus scelerisque.
+        {{currentMovie.overview}}
     </p>
     <br>
     <hr>
@@ -93,16 +86,18 @@
      + Informações
    </h3>
    <p>
-     <strong>Ano do lançamento:</strong>
-      2018
+     <strong>Lançamento:</strong>
+     {{currentMovie.release_date}}     
    </p>
    <p>
      <strong>Duração:</strong>
      210 minutos
    </p>
    <p>
-     <strong>Elenco:</strong>
-     Velit metus congue nulla, ac malesuada orci nisl non nisi. Sed lacinia odio id nisl luctus scelerisque.
+     <strong>Produtores:</strong>
+     <ul *ngFor="let company of currentMovie.production_companies">
+       <li>{{company.name}}: ({{company.origin_country}})</li>
+     </ul>
    </p>
    <br>
    <hr>

@@ -50,14 +50,24 @@
                   <ion-grid *ngIf="popularsMovie">
                       <ion-row>
                         <ion-col col-6 col-md-4 col-xl-3 *ngFor="let movie of popularsMovie" (click)="openDetails(movie)">
-                          <img [src]="movie.pathPoster" class="image-container" >                          
-                          <div class="info">
-                              {{movie.title}} - ({{movie.original_title}})
+                          <div *ngIf="movie.pathPoster">
+                              <img [src]="movie.pathPoster" class="image-container" >                          
+                              <div class="info">
+                                  {{movie.title}} - ({{movie.original_title}})
+                              </div>
                           </div>
+                          
+                          <div class="image-container spinnerCenter" *ngIf="!movie.pathPoster">
+                              <ion-spinner></ion-spinner>
+                              <div class="info">
+                                  Aguarde
+                              </div>
+                          </div>  
+
                         </ion-col>
                       </ion-row>
                     </ion-grid>  
-                    <div *ngIf="!popularsMovie">
+                    <div *ngIf="popularsMovie == null">
                       <h3> - Falha ao localizar filmes populares</h3>
                     </div>              
               </ion-card-content>

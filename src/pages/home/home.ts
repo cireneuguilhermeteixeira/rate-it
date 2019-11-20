@@ -16,7 +16,7 @@ import { Movie } from '../../model/movie';
 })
 export class HomePage {
   @ViewChild("header") public headerComponent: HeaderPage;
-  popularsMovie:Array<Movie>;
+  popularsMovie:Array<Movie> = [];
   search:any=null;
   constructor(
     public navCtrl: NavController,
@@ -53,8 +53,12 @@ export class HomePage {
         })
       })
     })
-    .then(() => loading.dismiss().catch(() => {}))
-    .catch(error => ErrorChecker.getErrorMessage('Erro ao tentar obter informações dos filmes populares',error, this.toastCtrl))
+    .then(() => loading.dismiss())
+    .catch(error => {
+      this.popularsMovie = null;
+      ErrorChecker.getErrorMessage('Erro ao tentar obter informações dos filmes populares',error, this.toastCtrl)
+    
+    })
 
   }
 

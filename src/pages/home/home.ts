@@ -36,7 +36,6 @@ export class HomePage {
   getPopular(){
     const loading = this.loadingController.create({
       content: 'Buscando ',
-      dismissOnPageChange: true
     })
 
 

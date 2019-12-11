@@ -15,8 +15,11 @@ export class WelcomePage {
 
   login(){
     console.log('login');
-    this.navCtrl.push('HomePage');
-    //this.navCtrl.setRoot(HomePage);
+    this.navCtrl.push('LoginPage');
+  }
+
+  register(){
+    this.navCtrl.push('RegisterPage');
   }
 
 }

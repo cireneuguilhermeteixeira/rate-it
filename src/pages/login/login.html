@@ -1,0 +1,44 @@
+
+<ion-content padding>
+
+    <a href="#">    
+        <ion-navbar>  
+            <ion-title>
+                Rate-it
+            </ion-title>
+        </ion-navbar>
+    </a>
+  
+  <div>
+    <img src="../../assets/icon/logo.png" class="logo" alt="logo" srcset="">
+
+      <form [formGroup]="loginForm" (ngSubmit)="Login()">
+        <ion-list>
+          <ion-item>
+            <ion-label floating >Email</ion-label>
+            <ion-input type="email" formControlName="email" ></ion-input>
+          </ion-item>
+    
+          <ion-item>
+            <ion-label floating>Senha</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+        </ion-list>
+        
+      </form>
+      <div>
+        <a href="#" class="forgot-pass">Esqueceu a senha?</a>
+      </div>
+      <br><br>
+    
+      <button ion-button round color="primary"  [disabled]="!loginForm.valid"  full type="submit" (click)="login()">Login</button>
+      <br>
+      <hr>
+      <div class="text-center" (click)="register()">
+        Não tem conta?
+        <br>
+        <a >Cadastre-se</a>
+      </div>
+  </div>
+  
+</ion-content>

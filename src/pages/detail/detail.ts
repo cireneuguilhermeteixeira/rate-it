@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, IonicPage, NavParams } from 'ionic-angular';
+import { NavController, IonicPage, NavParams, AlertController } from 'ionic-angular';
 import { WelcomePage } from '../welcome/welcome';
 import { Movie } from '../../model/movie';
 import { MovieProvider } from '../../providers/movie.provider';
@@ -56,7 +56,8 @@ export class DetailPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public movieProvider: MovieProvider
+    public movieProvider: MovieProvider,
+    public alertCtrl: AlertController
 
     ) {
 
@@ -92,6 +93,49 @@ export class DetailPage {
 
   hideComents(){
     this.commentsVisible = false;
-
   }
+
+
+
+  avaliar(){
+
+    this.alertCtrl.create({
+      title: 'Avaliando...',
+      message: 'Que nota você daria para esse filme de 0 a 10?',
+      inputs:[
+        {
+          type:'number',
+          name:'avaliar',
+          min:'0',
+          max:'10'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Avaliar',
+          handler: data => {          
+            if(data.avaliar>10){
+              data.avaliar = 10;
+            }  
+            if(data.avaliar < 0){
+              data.avaliar = 0;
+            }
+            this.movieProvider.avaliar({
+              movie_id:this.movieId,
+              user_id:localStorage.getItem('id'),
+              rating: data.avaliar
+            })
+            .then(()=>this.ionViewWillEnter())
+          }
+        },
+        {
+          text: 'Cancelar',
+          handler: () => {}
+        }
+    ]
+
+    }).present();
+  }
+
+  
 }

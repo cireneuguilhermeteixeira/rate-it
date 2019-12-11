@@ -1,0 +1,63 @@
+<ion-content padding center text-cente>
+        <a href="#">    
+            <ion-navbar>  
+                <ion-title>Registrar-se</ion-title>
+            </ion-navbar>
+        </a>
+
+        <img src="../../assets/icon/logo.png" class="logo" alt="logo" srcset="">
+        
+        <form [formGroup]="registerForm" (ngSubmit)="register()" >
+            <ion-list *ngIf="!isCreated">
+                <ion-item>
+                    <ion-label floating>Primeiro nome</ion-label>
+                    <ion-input type="text" formControlName="first_name"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label floating>Último nome</ion-label>
+                    <ion-input type="text" formControlName="last_name"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label floating>Nick</ion-label>
+                    <ion-input type="text" formControlName="username"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label floating>Celular</ion-label>
+                    <ion-input type="number" formControlName="phone"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label floating>Email</ion-label>
+                    <ion-input type="email" formControlName="email"></ion-input>
+                </ion-item>
+               
+
+                <ion-item>
+                    <ion-label floating>Senha</ion-label>
+                    <ion-input type="password" formControlName="password"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label floating>Confirme a senha</ion-label>
+                    <ion-input type="password" (ionInput)="comparePass()" formControlName="confirmPassword"></ion-input>
+                </ion-item>
+               
+
+                <ion-label color="primary" *ngIf="!comparePass()">As senhas não são iguais...</ion-label>
+               <!-- <ion-item>
+                        <ion-label floating>Confirmar senha</ion-label>
+                        <ion-input type="password" formControlName="passwordConfirm"></ion-input>
+                </ion-item>-->
+            
+                <div padding>
+                    <button ion-button [disabled]="registerForm.invalid || !comparePass()" full round type="submit" style="border-radius:15px">Criar conta</button>
+                </div>
+                <br>
+            </ion-list>
+            
+        </form>
+      
+</ion-content>

@@ -4,10 +4,9 @@ import { environmentVars } from '../environment';
 
 
 @Injectable()
-export class MovieProvider {
+export class MovieProvider{
 
   constructor(public http: HttpClient) {
-    console.log('Hello MovieProvider Provider');
   }
 
   public getPopular() {
@@ -26,8 +25,8 @@ export class MovieProvider {
 
     return this.http.get(url)
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((data: any) => {        
+        return JSON.parse(data.body);
       })
   }
 
@@ -39,5 +38,14 @@ export class MovieProvider {
       .then((data: any) => {
         return data;
       })
+  }
+
+  public avaliar (avaliacao){
+    const url = `${environmentVars.apiUrl}filmes/${avaliacao.movie_id}/avaliar`;
+    return this.http.post(url,avaliacao)
+    .toPromise()
+    .then((data: any) => {
+      return data;
+    })
   }
 }

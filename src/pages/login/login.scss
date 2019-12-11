@@ -1,0 +1,45 @@
+login {  
+
+    ion-title {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0 90px 1px;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+    }
+    .sender-logo{
+      width: 30px;
+    }
+    .logo {
+      width: 40%;
+      height: auto;
+      display: block;
+      margin: 0 auto 2vh auto;
+    }
+  
+    .item {
+      padding-left: 0px;
+    }
+  
+    .button {
+      margin-bottom: 2vh;
+    }
+  
+    .forgot-pass{
+      float:right;
+      margin-top:-10px;
+      text-decoration: none;
+    }
+  
+    .text-center{
+      text-align: center;
+    }
+  
+    .text-center a{
+      text-decoration: none;
+    }
+  
+  }
+  

@@ -9,6 +9,7 @@ import { MyApp } from './app.component';
 import { WelcomePage } from '../pages/welcome/welcome';
 //import {HeaderPage} from '../pages/header/header';
 
+import {AuthProvider} from '../providers/auth.provider';
 import { MovieProvider } from '../providers/movie.provider';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -36,7 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MovieProvider,
-
+    AuthProvider
   ],
   exports:[
     //HeaderPage

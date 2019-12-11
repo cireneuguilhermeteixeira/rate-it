@@ -1,0 +1,25 @@
+page-register {
+    
+    ion-title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0 90px 1px;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+
+    .logo {
+      width: 20%;
+      height: auto;
+      display: block;
+      margin: 0 auto 2vh auto;
+    }
+    .text-center {
+      margin-top:-10px;
+      color:rgb(105, 102, 102);
+      text-align: center;
+
+    }
+}

@@ -23,8 +23,6 @@ export class HomePage {
     public movieProvider: MovieProvider,
     public toastCtrl: ToastController,
     public loadingController: LoadingController,
-
-
     ) {
 
   }
@@ -57,7 +55,7 @@ export class HomePage {
     .catch(error => {
       this.popularsMovie = null;
       ErrorChecker.getErrorMessage('Erro ao tentar obter informações dos filmes populares',error, this.toastCtrl)
-    
+      loading.dismiss()
     })
 
   }
@@ -81,6 +79,12 @@ export class HomePage {
       movieId: movie.id,
       pathPoster: movie.pathPoster
     });
+  }
 
+
+  logout(){
+    localStorage.setItem('name','');
+    localStorage.setItem('username','');
+    localStorage.setItem('id','');
   }
 }

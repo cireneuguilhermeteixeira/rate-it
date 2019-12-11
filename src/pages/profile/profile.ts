@@ -10,8 +10,16 @@ import { WelcomePage } from '../welcome/welcome';
 export class ProfilePage {
 
   search:any=null;
+  user = {
+    name:'',
+    username:''
+  }
   constructor(public navCtrl: NavController) {
+  }
 
+  ionViewWillEnter() {
+    this.user.name = localStorage.getItem('name');
+    this.user.username = localStorage.getItem('username');
   }
 
   welcome(){
